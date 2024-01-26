@@ -9,7 +9,7 @@
 		"lint": "eslint 'src/**/*.{ts,tsx}'",
 		"tailwind": "npx tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --watch",
 		"build": "yarn build:fe && yarn build:be",
-		"build:fe": "npx tailwindcss -i ./src/input.css -o ./src/output.css && webpack --mode=production --progress",
+		"build:fe": "npx tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css && webpack --mode=production --progress",
 		"build:be": "tsc --project server/tsconfig.json"
 	},
 	"keywords": [
