@@ -1,9 +1,12 @@
 import express from 'express';
 import { test, redirect } from './controllers';
 import { config } from 'dotenv';
+import { connectDb } from './utils';
 config();
 
-const { SERVER_PORT } = process.env;
+const { SERVER_PORT, CONNECTION_STRING } = process.env;
+
+export const client = connectDb(CONNECTION_STRING);
 
 const app = express();
 

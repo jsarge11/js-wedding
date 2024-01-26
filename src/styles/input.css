@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+	height: 100%;
+	width: 100%;
+	background-color: var(--red);
+	--red: #bd1d26;
+	--yellow: #fdd872;
+	--pink: #FF6682;
+}
+
+.custom-text-red {
+	color: var(--red);
+}
+
+.custom-bg-yellow {
+	background-color: var(--yellow);
+}
+
+@font-face {
+	font-family: 'EdwardianScript';
+	src: url('../assets/font.otf') format('opentype');
+	font-weight: light;
+	font-style: normal;
+}
+
+* {
+	font-family: 'EdwardianScript', sans-serif;
+	color: white;
+}
+
+.main {
+	background-image: url('../assets/scotty-jade-1.jpg');
+}
+
+.secondary {
+	background-image: url('../assets/scotty-jade-2.png');
+}
+
+.gate {
+	background-image: url('../assets/gate.png');
+}
+
+#thank-you {
+	background-image: url('../assets/scotty-jade-3.jpg');
+}
+
+.montserrat {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.form-submitted {
+	background-color: var(--pink);
+}
+
+label>* {
+	background-color: var(--yellow);
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	font-size: 0.75rem;
+}
+
+/* Custom Tailwind */
+.scale-200 {
+	transform: scale(2);
+}
+
+@screen lg {
+	.lg\:custom-gate-position {
+		background-position: center 70%;
+	}
+}
+
+/*  */

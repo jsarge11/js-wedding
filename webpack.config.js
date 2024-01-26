@@ -21,12 +21,16 @@ module.exports = {
 				},
 			},
 			{
-				test: /\.s?css/,
-				use: ['style-loader', 'css-loader', 'sass-loader'],
+				test: /\.css/,
+				use: ['style-loader', 'css-loader'],
 			},
 			{
 				test: /\.(ts|tsx)$/,
 				loader: 'ts-loader',
+			},
+			{
+				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				type: 'asset/resource',
 			},
 		],
 	},
