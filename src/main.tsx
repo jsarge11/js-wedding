@@ -12,7 +12,7 @@ export const Main = () => {
 		<div className="h-full w-full overflow-x-hidden">
 			<Hero />
 			<SecondaryHeader />
-			<Gingham isComplete={isComplete} />
+			<Gingham />
 			{isComplete ? <FormSubmitted /> : <Gate setIsComplete={setIsComplete} />}
 		</div>
 	);

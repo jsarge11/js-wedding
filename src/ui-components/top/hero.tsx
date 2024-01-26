@@ -9,7 +9,7 @@ export const Hero: FC<HeroProps> = () => {
 			<div className="flex justify-center items-start">
 				<Header text="Jade and Scotty" />
 			</div>
-			<h2 className="flex flex-col mt-24 justify-center items-center text-8xl">
+			<h2 className="flex flex-col mt-4 justify-center items-center text-8xl">
 				<span className="mt-14">Save</span>
 				<span className="mt-14">the</span>
 				<span className="mt-14">Date!</span>

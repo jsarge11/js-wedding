@@ -1,23 +1,6 @@
 import React, { FC } from 'react';
 
-interface GinghamProps {
-	isComplete: boolean;
-}
-
-export const Gingham: FC<GinghamProps> = ({ isComplete }) => {
-	const incompleteButton = (
-		<a href="#gate">
-			<button className="shadow-lg active:shadow-none bg-white text-black px-12 py-1 text-3xl custom-text-red rounded">
-				Click here!
-			</button>
-		</a>
-	);
-
-	const completeButton = (
-		<button className="bg-white text-black px-12 py-1 text-3xl custom-text-red rounded">
-			Thank you!
-		</button>
-	);
+export const Gingham: FC = () => {
 	return (
 		<div className="w-[200%] md:w-[150%] relative">
 			<svg
@@ -88,7 +71,6 @@ export const Gingham: FC<GinghamProps> = ({ isComplete }) => {
 				<h2 className="text-7xl">We need your</h2>
 				<h1 className="text-9xl mt-2 mb-4">address!</h1>
 				<div className="h-20 w-px bg-white m-auto mb-8" />
-				{isComplete ? completeButton : incompleteButton}
 			</div>
 		</div>
 	);
