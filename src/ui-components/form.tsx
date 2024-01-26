@@ -2,13 +2,14 @@ import React, { Dispatch, FC, FormEventHandler, SetStateAction, useState } from 
 import { Input } from './input';
 import { TextArea } from './text-area';
 import { Spinner } from './spinner';
+import axios from 'axios';
 
 interface FormProps {
 	setIsComplete: Dispatch<SetStateAction<boolean>>;
 }
 
 export const Form: FC<FormProps> = ({ setIsComplete }) => {
-	const [isOutsideUS, setIsOutsideUS] = useState(true);
+	const [isOutsideUSA, setIsOutsideUSA] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 	const handleFormSubmit: FormEventHandler<HTMLFormElement> = (event) => {
 		event.preventDefault();
@@ -17,32 +18,42 @@ export const Form: FC<FormProps> = ({ setIsComplete }) => {
 		const formData = new FormData(event.target as HTMLFormElement);
 
 		let payload = {};
-
-		if (isOutsideUS) {
+		if (isOutsideUSA) {
 			payload = {
-				name: formData.get('name') as string,
-				address: formData.get('full address') as string,
+				isOutsideUSA,
+				name: (formData.get('name') as string).toUpperCase(),
+				fullAddress: (formData.get('full address') as string).toUpperCase(),
 			};
 		} else {
 			payload = {
-				name: formData.get('name') as string,
-				address: formData.get('address') as string,
-				addressTwo: formData.get('address two') as string,
-				city: formData.get('city') as string,
-				state: formData.get('state') as string,
+				isOutsideUSA,
+				name: (formData.get('name') as string).toUpperCase(),
+				address: (formData.get('address') as string).toUpperCase(),
+				addressTwo: (formData.get('address two') as string).toUpperCase(),
+				city: (formData.get('city') as string).toUpperCase(),
+				state: (formData.get('state') as string).toUpperCase(),
 				zip: formData.get('zip') as string,
 			};
 		}
 
-		setTimeout(() => {
-			setIsComplete(true);
-			setIsLoading(false);
-		}, 1000);
+		axios
+			.post('.netlify/functions/address', payload)
+			.then(() => {
+				setTimeout(() => {
+					setIsComplete(true);
+					setIsLoading(false);
+				}, 1000);
+			})
+			.catch(() => {
+				setTimeout(() => {
+					setIsLoading(false);
+				}, 1000);
+			});
 	};
 
 	const handleCheck = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
 		const target = e.target as HTMLInputElement;
-		setIsOutsideUS(target.checked);
+		setIsOutsideUSA(target.checked);
 	};
 
 	return (
@@ -50,14 +61,14 @@ export const Form: FC<FormProps> = ({ setIsComplete }) => {
 			className="flex flex-col justify-center items-end h-full pt-[75%] ml-28 md:pt-[15%] md:mr-28"
 			onSubmit={handleFormSubmit}>
 			<Input
-				checked={isOutsideUS}
+				checked={isOutsideUSA}
 				className="montserrat"
 				label="Do you live outside the US?"
 				type="checkbox"
 				onClick={handleCheck}
 			/>
 			<Input label="Name" required />
-			{isOutsideUS ? (
+			{isOutsideUSA ? (
 				<TextArea label="Full Address" required />
 			) : (
 				<>
@@ -65,7 +76,7 @@ export const Form: FC<FormProps> = ({ setIsComplete }) => {
 					<Input label="Address Two" />
 					<Input label="City" required />
 					<Input label="State" required />
-					<Input label="ZIP" required />
+					<Input label="ZIP" required type="number" />
 				</>
 			)}
 			<button

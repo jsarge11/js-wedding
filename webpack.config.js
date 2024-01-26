@@ -53,10 +53,5 @@ module.exports = {
 	],
 	devServer: {
 		static: path.resolve(__dirname, 'dist'),
-		proxy: {
-			'/': {
-				target: 'http://localhost:5555',
-			},
-		},
 	},
 };

@@ -13,6 +13,6 @@
 			"utils": ["./src/utils/index.ts"]
 		}
 	},
-	"include": ["server", "src"],
+	"include": ["src"],
 	"exclude": ["node_modules"]
 }
