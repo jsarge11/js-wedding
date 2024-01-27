@@ -58,7 +58,7 @@ export const Form: FC<FormProps> = ({ setIsComplete }) => {
 
 	return (
 		<form
-			className="flex flex-col justify-center items-end h-full pt-[75%] ml-28 md:pt-[15%] md:mr-28"
+			className="flex flex-col justify-center items-end h-full pt-[50%] ml-28 md:pt-[15%] md:mr-28"
 			onSubmit={handleFormSubmit}>
 			<Input
 				checked={isOutsideUSA}

@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 
 export const Gingham: FC = () => {
 	return (
-		<div className="w-[200%] md:w-[150%] relative">
+		<div className="w-[100%] relative">
 			<svg
 				id="Layer_1"
-				viewBox="0 0 1500 1031.26"
+				viewBox="0 0 750 1031.26"
 				xmlns="http://www.w3.org/2000/svg"
 				xmlnsXlink="http://www.w3.org/1999/xlink">
 				<defs>
@@ -67,7 +67,7 @@ export const Gingham: FC = () => {
 					y="516.13"
 				/>
 			</svg>
-			<div className="absolute top-20 md:top-44 w-6/12 md:w-[65%] text-center xl:top-80">
+			<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
 				<h2 className="text-7xl">We need your</h2>
 				<h1 className="text-9xl mt-2 mb-4">address!</h1>
 				<div className="h-20 w-px bg-white m-auto mb-8" />
