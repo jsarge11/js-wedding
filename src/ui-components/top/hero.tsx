@@ -5,7 +5,9 @@ interface HeroProps {}
 
 export const Hero: FC<HeroProps> = () => {
 	return (
-		<div className="main bg-top bg-cover h-full w-full">
+		<div
+			className="main bg-top bg-cover h-full w-full"
+			style={{ backgroundPosition: `15% 50%` }}>
 			<div className="flex justify-center items-start">
 				<Header text="Jade and Scotty" />
 			</div>

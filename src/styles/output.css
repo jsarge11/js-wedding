@@ -1060,6 +1060,14 @@ label>* {
     margin-right: 7rem;
   }
 
+  .md\:mt-7 {
+    margin-top: 1.75rem;
+  }
+
+  .md\:mt-14 {
+    margin-top: 3.5rem;
+  }
+
   .md\:pt-\[15\%\] {
     padding-top: 15%;
   }
