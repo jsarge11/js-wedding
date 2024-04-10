@@ -41,7 +41,7 @@ export const QRCode: FC<QRCodeProps> = () => {
 	return (
 		<form
 			className="qr-background flex justify-center items-center flex-col montserrat p-3 min-h-[20%] pt-32 pb-32"
-			id="registry"
+			id="reception"
 			onSubmit={handleFormSubmit}>
 			{isComplete ? (
 				<h1 className="text-8xl qr-text">Thank you!</h1>
