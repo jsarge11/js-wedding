@@ -11,6 +11,16 @@ body,
 	--red: #bd1d26;
 	--yellow: #fdd872;
 	--pink: #FF6682;
+	--background-color: #aad7a7;
+	--text-color: #357b3c;
+}
+
+.qr-background {
+	background-color: var(--background-color);
+}
+
+.qr-text {
+	color: var(--text-color)
 }
 
 .custom-text-red {

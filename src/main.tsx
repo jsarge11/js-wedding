@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './styles/output.css';
-import { Hero } from './ui-components';
+import { Hero, QRCode } from './ui-components';
 import { SecondaryHeader } from './ui-components/top/secondary-header';
 import { Gingham } from './assets/gingham';
 import { Gate } from './ui-components/gate';
@@ -12,6 +12,7 @@ export const Main = () => {
 		<div className="h-full w-full overflow-x-hidden">
 			<Hero />
 			<SecondaryHeader />
+			<QRCode />
 			<Gingham />
 			{isComplete ? <FormSubmitted /> : <Gate setIsComplete={setIsComplete} />}
 		</div>
