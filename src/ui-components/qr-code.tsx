@@ -7,7 +7,7 @@ interface QRCodeProps {
 }
 
 export const QRCode: FC<QRCodeProps> = () => {
-	const qrInputClass = 'mb-3 p-5 text-black max-w-lg min-w-96';
+	const qrInputClass = 'mb-3 p-5 text-black max-w-lg min-w-[80%] montserrat';
 	const [isLoading, setIsLoading] = useState(false);
 	const [isComplete, setIsComplete] = useState(false);
 
@@ -38,39 +38,42 @@ export const QRCode: FC<QRCodeProps> = () => {
 				}, 1000);
 			});
 	};
+
 	return (
-		<form
-			className="qr-background flex justify-center items-center flex-col montserrat p-3 min-h-[20%] pt-32 pb-32"
-			id="reception"
-			onSubmit={handleFormSubmit}>
-			{isComplete ? (
-				<h1 className="text-8xl qr-text">Thank you!</h1>
-			) : (
-				<>
-					<h1 className="qr-text text-2xl text-center montserrat pb-3 min-w-md max-w-lg">
-						RSVP for the Reception
-					</h1>
-					<input
-						className={qrInputClass}
-						maxLength={30}
-						name="name"
-						placeholder="Name"
-						required
-						type="text"
-					/>
-					<input
-						className={qrInputClass}
-						defaultValue={1}
-						max={20}
-						name="guests"
-						placeholder="Number of Guests"
-						type="number"
-					/>
-					<button className="qr-button bg-white text-black max-w-lg min-w-96 active:bg-gray-100 flex justify-center p-2">
-						{isLoading ? <Spinner /> : 'Submit'}
-					</button>
-				</>
-			)}
-		</form>
+		<span id="reception">
+			<form
+				className="qr-background flex justify-center items-center flex-col p-3 min-h-[100%] pt-32 pb-32"
+				onSubmit={handleFormSubmit}>
+				<h1 className="text-6xl mb-8">Jade & Scotty</h1>
+				{isComplete ? (
+					<h1 className="text-8xl montserrat qr-text">Thank you!</h1>
+				) : (
+					<>
+						<h1 className="qr-text text-2xl text-center montserrat pb-3 min-w-md max-w-lg">
+							RSVP for the Reception
+						</h1>
+						<input
+							className={qrInputClass}
+							maxLength={30}
+							name="name"
+							placeholder="Name"
+							required
+							type="text"
+						/>
+						<input
+							className={qrInputClass}
+							max={20}
+							min={1}
+							name="guests"
+							placeholder="Number of Guests"
+							type="number"
+						/>
+						<button className="qr-button bg-white text-black max-w-lg min-w-[80%] active:bg-gray-100 flex justify-center p-2 montserrat">
+							{isLoading ? <Spinner /> : 'Submit'}
+						</button>
+					</>
+				)}
+			</form>
+		</span>
 	);
 };
