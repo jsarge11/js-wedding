@@ -9,7 +9,8 @@
 		"lint": "eslint 'src/**/*.{ts,tsx}'",
 		"tailwind": "npx tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --watch",
 		"build": "yarn build:fe",
-		"build:fe": "npx tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css && webpack --mode=production --progress"
+		"build:fe": "npx tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css && webpack --mode=production --progress",
+		"netlify": "yarn build; netlify dev"
 	},
 	"keywords": [
 		"react",
