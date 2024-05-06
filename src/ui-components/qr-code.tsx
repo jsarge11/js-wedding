@@ -1,6 +1,7 @@
 import React, { FC, FormEventHandler, useState } from 'react';
 import { Spinner } from './spinner';
 import axios from 'axios';
+import { GalleryComponent } from './gallery';
 
 interface QRCodeProps {
 	id?: string;
@@ -98,6 +99,7 @@ export const QRCode: FC<QRCodeProps> = () => {
 					Our Anthropology Registry
 				</a>
 			</form>
+			<GalleryComponent />
 		</span>
 	);
 };
